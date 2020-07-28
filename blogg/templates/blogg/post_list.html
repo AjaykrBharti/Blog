@@ -1,0 +1,49 @@
+{% extends 'blogg/base.html'%}
+{% block content %}
+
+
+{% for post in posts %}
+<br>
+<br>
+<div class="postlist">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="card mb-3" style="border:none;" >
+            <!-- To make board less class we need to put border as none-->
+              <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="..." class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title" ><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title | title }}</a></h5>
+                            <p class="card-text">{{ post.text|safe|truncatewords:30|linebreaks }}</p>
+                            <p class="card-text">
+                                <small class="text-muted"><a href="{% url 'post_share' pk=post.pk %}">Share</a></small>
+                            </p>
+                            <p class="card-text">
+                                Published {{ post.published_date }} by {{ post.author }}
+                                {% if tag %}
+                                <h6>Posts tagged with "{{ tag.name }}"</h6>
+                                {% endif %}
+                                <p class="tags">
+                                     Tags:
+                                     {% for tag in post.tags.all %}
+                                     <a href="{% url 'post_list_by_tag' tag.slug %}">
+                                     {{ tag.name }}
+                                     </a>
+                                     {% if not forloop.last %}, {% endif %}
+                                     {% endfor %}
+                                </p>
+                            </p>
+                          </div>
+                    </div>
+              </div>
+        </div>
+
+    </div>
+    </div>
+{% endfor %}
+ {% include "blogg/pagination.html" with page=posts %}
+<br>
+<br>
+{% endblock content %}

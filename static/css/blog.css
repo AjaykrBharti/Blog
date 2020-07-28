@@ -1,0 +1,14 @@
+h1 a, h2 a {
+    color: #FF8833;
+}
+body {
+
+  padding-bottom: 20px;
+  padding-left: 0px;
+}
+
+card:hover {
+    background: linear-gradient(135deg,#6394ff 0%,#0a193b 100%);
+    color: white;
+}
+
