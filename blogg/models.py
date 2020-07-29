@@ -19,7 +19,7 @@ STATUS_CHOICES = (
  ('published', 'Published'),
  )
 
-
+# Post model
 class Post(models.Model):
     slug = models.SlugField(max_length=250, unique_for_date='published_date')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -51,7 +51,7 @@ class Post(models.Model):
 
 
 
-
+# Comment model
 class Comment(models.Model):
 
      post = models.ForeignKey(Post, on_delete=models.CASCADE ,related_name='comments')
