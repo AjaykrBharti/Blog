@@ -25,7 +25,6 @@ Pillow==7.2.0
 PyDictionary==2.0.1
 pyodbc==4.0.30
 pytz==2019.3
-pywin32==227
 Random-Word==1.0.4
 regex==2020.7.14
 requests==2.24.0
