@@ -25,7 +25,7 @@ SECRET_KEY = 'vzxp*1h3pl*v+^7_*!u0z$it0a=nh2qo#@k$r3+nq%1e92ev=5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0','localhost']
+ALLOWED_HOSTS = ['eeehub-blog.herokuapp.com','localhost']
 
 
 SITE_ID = 1 # This will help django to indentify the site
@@ -47,7 +47,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+     
     'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -138,6 +141,7 @@ MEDIA_URL = '/images/'
 
 MEDIA_ROOT =os.path.join(BASE_DIR, 'static/images')
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #Setting up the SMTP server of GMAIL
 EMAIL_HOST = 'smtp.gmail.com'
