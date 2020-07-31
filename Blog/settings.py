@@ -47,7 +47,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+     
     'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,7 +139,7 @@ MEDIA_URL = '/images/'
 
 MEDIA_ROOT =os.path.join(BASE_DIR, 'static/images')
 
-STATIC_FOOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #Setting up the SMTP server of GMAIL
 EMAIL_HOST = 'smtp.gmail.com'
