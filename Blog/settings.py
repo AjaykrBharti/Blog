@@ -136,6 +136,7 @@ MEDIA_URL = '/images/'
 
 MEDIA_ROOT =os.path.join(BASE_DIR, 'static/images')
 
+STATIC_FOOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #Setting up the SMTP server of GMAIL
 EMAIL_HOST = 'smtp.gmail.com'
