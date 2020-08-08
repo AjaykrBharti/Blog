@@ -7,6 +7,8 @@ from django.utils import timezone
 from django.shortcuts import reverse
 from ckeditor.fields import RichTextField
 
+from django.utils.text import slugify
+
 class Categories(models.Model):
     catergory_name = models.CharField(max_length=15, null=False,default='Default Choice')
 
@@ -48,6 +50,11 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post_detail',
                        args=[self.id])
+
+    def save(self,*args,**kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+            super(Post,self).save(*args,**kwargs)
 
 
 
